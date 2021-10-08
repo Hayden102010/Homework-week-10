@@ -1,0 +1,59 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Malaria Mortality",
+    "width": 800,
+    "height": 600,
+    "projection": {
+      "type": "equirectangular"
+    },
+    "data": {
+      "url": "ne_110m_admin_0_countries.topojson",
+      "format": {
+            "type": "topojson",
+            "feature": "ne_110m_admin_0_countries"
+          }
+    },
+    "params" : [ 
+        { "name" : "Incidence" , 
+        "value" : 0 ,
+         "bind" : 
+         { "input" : "range" ,
+            "min": 0,         
+            "max": 10000,         
+            "step": 100,         
+            "name": "number of Cases"       
+        }     
+    }
+],
+    "mark": {
+      "type": "geoshape"
+      },
+    "transform": [{
+        "lookup": "properties.ISO_A3",
+        "from": {
+          "data": {
+            "url": "malaria_deaths.csv"
+          },
+          "key": "Code",
+          "fields": ["Deaths", "Entity", "Incidence"]
+        }
+      },
+      {"filter": "datum.Incidence >= Incidence" }
+    ],
+    "encoding": {
+      "color": {
+        "field": "Deaths",
+        "type": "quantitative",
+        "scale": {         
+          "type": "ordinal",         
+          "domain": [50, 5000, 120000],         
+          "range": ["green","white", "red"] 
+        }
+      },
+      "tooltip": [
+        {"field": "Entity", "type": "nominal", "title": "country"},
+        {"field": "Deaths", "type": "quantitative"},
+        {"field": "Incidence", "type": "quantitative"}
+      ]
+    }
+  }

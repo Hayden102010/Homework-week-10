@@ -14,12 +14,18 @@
 <body>
   
 <div id="covid_mortality_map"></div>
+
 <div id="malaria_mortalityv3_map"></div>
 
 <script type="text/javascript">
 
   var spec2 = "covid_mortality_map.vg.json";
   vegaEmbed('#covid_mortality_map', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+
+  var spec2 = "malaria_mortalityv3_map.vg.json";
+  vegaEmbed('#malaria_mortalityv3_map', spec2).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 </script>

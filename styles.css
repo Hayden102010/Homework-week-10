@@ -1,8 +1,16 @@
-#covid_mortality {
-	top:100px;
+#covid_mortality_map {
+	top:0px;
 	bottom: 100px; 
-	left: 100px;
+	left: 0px;
 	right: 100px;
-	/*height: 1000px;
-	width: 800px;*/
+	height: 1000px;
+	width: 800px;
+}
+#malaria_mortalityv3_map {
+	top:-1000px;
+	bottom: 1000px; 
+	left: 900px;
+	right: -800px;
+	height: 1000px;
+	width: 800px;
 }
