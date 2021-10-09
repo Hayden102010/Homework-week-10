@@ -49,7 +49,7 @@
         "scale": {         
           "type": "ordinal",         
           "domain": [50, 5000, 120000],         
-          "range": ["green","white", "red"] 
+          "range": ["blue","white", "orange"] 
         }
       },
       "tooltip": [
