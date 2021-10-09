@@ -25,6 +25,8 @@
         }     
     }
 ],
+"layer":[
+  {
     "mark": {
       "type": "geoshape"
       },
@@ -56,4 +58,29 @@
         {"field": "Incidence", "type": "quantitative"}
       ]
     }
+  },
+    
+      {
+      
+      "transform": [
+              {
+          "window":  [{"op": "rank", "as": "ranking"}],
+          "sort": [{"field": "Deaths", "order": "descending"}] 
+        },
+        {"filter": "datum.ranking == 1"}, 
+        {
+          "calculate": "'The highest mortality rate due to malaria is: 142243'",
+          "as": "annotation"
+        }
+      ],
+      "mark": {"type": "text",
+      "dx": 50,
+      "dy": 200
+    }, 
+      "encoding": { 
+        "text": {"field": "annotation"}  
+    }
   }
+    ]
+  }
+
