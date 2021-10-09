@@ -36,7 +36,7 @@
       "scale": {         
         "type": "ordinal",         
         "domain": [10000, 100000, 500000],         
-        "range": ["green","white", "red"] 
+        "range": ["blue","white", "orange"] 
       }
     },
     "tooltip": [
